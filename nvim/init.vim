@@ -16,7 +16,6 @@ colorscheme 1989
 hi Normal guibg=NONE ctermbg=NONE
 hi Nontext guibg=NONE ctermbg=NONE
 " highlight clear SignColumn
-" or you could do this:
 highlight SignColumn guibg=black ctermbg=black
 highlight LineNr ctermfg=grey ctermbg=black
 highlight StatusLine ctermfg=grey ctermbg=black
@@ -41,6 +40,11 @@ Plug 'tpope/vim-fugitive' " many advanced git operations :Gblame :Glog etc
 Plug 'itchyny/vim-cursorword' " underline the word under the cursor
 Plug 'machakann/vim-highlightedyank' " highlight yanked content
 Plug 'airblade/vim-gitgutter' "git gutter goodness
+Plug 'vim-airline/vim-airline' " top buffer tabs
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_statusline_ontop=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='bubblegum'
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " styled-components
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang support
 
@@ -57,7 +61,7 @@ endif
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " For async completion
-Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/deoplete.nvim'
 " For Denite features
 Plug 'Shougo/denite.nvim'
 " Enable deoplete at startup
