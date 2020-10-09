@@ -8,7 +8,11 @@ set tabstop=2 shiftwidth=2 expandtab smarttab
 
 " Enable syntax highlighting
 syntax on
+set t_Co=256
 colorscheme 1989
+" Override colorscheme for dark transparent background
+hi Normal guibg=NONE ctermbg=NONE
+hi Nontext guibg=NONE ctermbg=NONE
 
 "nnoremap <silent><buffer><expr> f
 "	\ defx#do_action('call', {'split':'vertical', 'winwidth':50, 'direction':'topleft'})
