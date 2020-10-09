@@ -10,11 +10,16 @@ set updatetime=100
 " Enable syntax highlighting
 syntax on
 set t_Co=256
+set number
 colorscheme 1989
 " Override colorscheme for dark transparent background
 hi Normal guibg=NONE ctermbg=NONE
 hi Nontext guibg=NONE ctermbg=NONE
-highlight clear SignColumn
+" highlight clear SignColumn
+" or you could do this:
+highlight SignColumn guibg=black ctermbg=black
+highlight LineNr ctermfg=grey ctermbg=black
+highlight StatusLine ctermfg=grey ctermbg=black
 
 "nnoremap <silent><buffer><expr> f
 "	\ defx#do_action('call', {'split':'vertical', 'winwidth':50, 'direction':'topleft'})
