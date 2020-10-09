@@ -5,6 +5,7 @@ set undofile                       " store undofile
 set undodir=~/.config/nvim/undodir " undo file dir
 set undolevels=90000               " max number of undos
 set tabstop=2 shiftwidth=2 expandtab smarttab
+set updatetime=100
 
 " Enable syntax highlighting
 syntax on
@@ -13,6 +14,7 @@ colorscheme 1989
 " Override colorscheme for dark transparent background
 hi Normal guibg=NONE ctermbg=NONE
 hi Nontext guibg=NONE ctermbg=NONE
+highlight clear SignColumn
 
 "nnoremap <silent><buffer><expr> f
 "	\ defx#do_action('call', {'split':'vertical', 'winwidth':50, 'direction':'topleft'})
@@ -33,6 +35,7 @@ Plug 'roxma/vim-tmux-clipboard' " yank to tmux clipboard
 Plug 'tpope/vim-fugitive' " many advanced git operations :Gblame :Glog etc
 Plug 'itchyny/vim-cursorword' " underline the word under the cursor
 Plug 'machakann/vim-highlightedyank' " highlight yanked content
+Plug 'airblade/vim-gitgutter' "git gutter goodness
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " styled-components
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang support
 
