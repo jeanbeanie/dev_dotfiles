@@ -45,10 +45,10 @@ endif
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " For async completion
-"Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim'
 " For Denite features
 Plug 'Shougo/denite.nvim'
 " Enable deoplete at startup
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
