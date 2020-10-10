@@ -44,6 +44,7 @@ Plug 'tpope/vim-fugitive' " many advanced git operations :Gblame :Glog etc
 Plug 'itchyny/vim-cursorword' " underline the word under the cursor
 Plug 'machakann/vim-highlightedyank' " highlight yanked content
 Plug 'airblade/vim-gitgutter' "git gutter goodness
+autocmd BufWritePost * GitGutter
 let g:gitgutter_set_sign_backgrounds = 1
 
 Plug 'vim-airline/vim-airline' " top buffer tabs
