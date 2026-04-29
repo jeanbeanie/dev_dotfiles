@@ -28,4 +28,20 @@ require("lazy").setup({
       vim.cmd.colorscheme("tokyonight")
     end,
   },
+    -- Telescope: fuzzy finder (files, text grep, buffers, help tags, etc.)
+  {
+    "nvim-telescope/telescope.nvim",
+    -- Version tag; tends to be more stable than tracking latest commit
+    tag = "0.1.8",
+    -- Telescope requires plenary.nvim (Lua utility functions used by many plugins)
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local telescope = require("telescope")
+      telescope.setup({
+        defaults = {
+          -- todo: config layout/ignore patterns later; keeping minimal for now
+        },
+      })
+    end,
+  },
 })
