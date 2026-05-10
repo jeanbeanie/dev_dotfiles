@@ -44,4 +44,44 @@ require("lazy").setup({
       })
     end,
   },
+   -- LSP installer/manager (installs language servers like tsserver)
+  { "williamboman/mason.nvim", config = true },
+
+  -- Bridges mason.nvim with lspconfig (easy setup per language server)
+  { "williamboman/mason-lspconfig.nvim" },
+
+  -- Neovim's LSP client configuration (actual LSP wiring)
+  { "neovim/nvim-lspconfig" },
+
+  -- File tree (VS Code-like explorer)
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- file icons (optional but nice)
+    config = function()
+      require("nvim-tree").setup({
+        -- Minimal sensible defaults; tweak later
+        view = { width = 35 },
+        renderer = { group_empty = true },
+        filters = { dotfiles = false },
+      })
+    end,
+  },
+
+  -- Git change indicators in the sign column (+ hunk actions)
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
+
+  -- Buffer tabline (gives you VS Code-ish tabs for open buffers)
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("bufferline").setup({})
+    end,
+  },
 })

@@ -69,6 +69,8 @@ vim.opt.wrap = false
 
 -- Load plugin setup in /lua/plugins.lua
 require("plugins")
+-- Language Server Protocol
+require("lsp")
 
 -- Telescope keymaps
 local builtin = require("telescope.builtin")
