@@ -85,6 +85,8 @@ end
 require("config.cmp")
 -- Language Server Protocol
 require("lsp")
+-- Treesitter config
+require("config.treesitter")
 
 -- Nvim Tree Toggle
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "File tree: toggle" })
