@@ -81,6 +81,83 @@ if ok then
   vim.cmd.colorscheme("catppuccin")
 end
 
+-- Sessions (auto-save/restore per working directory)
+pcall(function()
+  require("persistence").setup({
+    dir = vim.fn.stdpath("state") .. "/sessions/", -- where sessions live
+    options = { "buffers", "curdir", "tabpages", "winsize" },
+  })
+end)
+
+-- Project root detection (so sessions are per-project)
+pcall(function()
+  require("project_nvim").setup({
+    manual_mode = false,
+    detection_methods = { "pattern" },
+    patterns = {
+      ".git",
+      -- JS/TS
+      "package.json",
+      "tsconfig.json",
+      "jsconfig.json",
+      "pnpm-workspace.yaml",
+      "yarn.lock",
+      "bun.lockb",
+      "deno.json",
+      "deno.jsonc",
+      -- other common project roots
+      "pyproject.toml",
+      "Cargo.toml",
+      "go.mod",
+      "composer.json",
+      "Makefile",
+    },
+  })
+end)
+
+-- Auto-cd to detected project root (plays well with persistence.nvim)
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local ok, project = pcall(require, "project_nvim.project")
+    if not ok then return end
+
+    local root = project.get_project_root()
+    if root and root ~= "" then
+      vim.cmd("cd " .. vim.fn.fnameescape(root))
+    end
+  end,
+})
+
+-- Auto-restore session on startup (per project root)
+vim.api.nvim_create_autocmd("VimEnter", {
+  nested = true,
+  callback = function()
+    -- Don’t auto-restore if nvim was started with explicit file args
+    if vim.fn.argc() > 0 then
+      return
+    end
+
+    local ok, persistence = pcall(require, "persistence")
+    if not ok then
+      return
+    end
+
+    -- Only load if a session exists for this cwd
+    persistence.load()
+  end,
+})
+
+-- disable treesitter-based highlighting in telescope previews
+pcall(function()
+  require("telescope").setup({
+    defaults = {
+      preview = {
+        treesitter = false,
+      },
+    },
+  })
+end)
+
 --- Completion config
 require("config.cmp")
 -- Language Server Protocol
@@ -103,3 +180,12 @@ vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc 
 vim.keymap.set("n", "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Trouble: toggle document diagnostics" })
 -- Optional explicit close
 vim.keymap.set("n", "<leader>xq", "<cmd>Trouble close<cr>", { desc = "Trouble: close" })
+
+
+-- Persistence keymaps
+vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end,
+  { desc = "Session: restore for cwd" })
+vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end,
+  { desc = "Session: restore last" })
+vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end,
+  { desc = "Session: stop saving" })

@@ -98,4 +98,13 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
+  -- Neovim sessions
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    event = "VeryLazy",
+  },
 })
