@@ -69,6 +69,17 @@ vim.opt.wrap = false
 
 -- Load plugin setup in /lua/plugins.lua
 require("plugins")
+
+-- Colorscheme: Catppuccin (ultra-dark)
+local ok, catppuccin = pcall(require, "catppuccin")
+if ok then
+  catppuccin.setup({
+    flavour = "mocha",  -- latte, frappe, macchiato, mocha
+    transparent_background = true,
+  })
+  vim.cmd.colorscheme("catppuccin")
+end
+
 --- Completion config
 require("config.cmp")
 -- Language Server Protocol

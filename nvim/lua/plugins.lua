@@ -20,14 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- declare plugins
 require("lazy").setup({
-  {
-    "folke/tokyonight.nvim",
-    lazy = false, -- load during startup so theme is avaiable immediately
-    priority = 1000, -- load earlier than other UI plugins
-    config = function()
-      vim.cmd.colorscheme("tokyonight")
-    end,
-  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     -- Telescope: fuzzy finder (files, text grep, buffers, help tags, etc.)
   {
     "nvim-telescope/telescope.nvim",
