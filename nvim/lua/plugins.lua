@@ -91,4 +91,6 @@ require("lazy").setup({
 
   -- A big set of pre-made snippets (VS Code style snippets)
   { "rafamadriz/friendly-snippets" },
+
+  { "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 })

@@ -69,6 +69,7 @@ vim.opt.wrap = false
 
 -- Load plugin setup in /lua/plugins.lua
 require("plugins")
+pcall(function() require("trouble").setup({}) end)
 
 -- Colorscheme: Catppuccin (ultra-dark)
 local ok, catppuccin = pcall(require, "catppuccin")
@@ -91,3 +92,9 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep,  { desc = "Grep text (ripgrep)" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers,    { desc = "List buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags,  { desc = "Help tags" })
+
+-- Trouble keymaps (make it behave like a "Problems" panel)
+vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble: toggle workspace diagnostics" })
+vim.keymap.set("n", "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Trouble: toggle document diagnostics" })
+-- Optional explicit close
+vim.keymap.set("n", "<leader>xq", "<cmd>Trouble close<cr>", { desc = "Trouble: close" })
