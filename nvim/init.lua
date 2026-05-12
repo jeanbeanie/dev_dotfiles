@@ -86,6 +86,9 @@ require("config.cmp")
 -- Language Server Protocol
 require("lsp")
 
+-- Nvim Tree Toggle
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "File tree: toggle" })
+
 -- Telescope keymaps
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
