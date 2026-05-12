@@ -9,6 +9,8 @@ require("mason-lspconfig").setup({
     "eslint",
   },
 })
+-- Connect completion to LSP servers
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Runs when an LSP server attaches to a buffer
 local on_attach = function(_, bufnr)
@@ -39,6 +41,7 @@ end
 -- Define server configs using the new API
 vim.lsp.config("ts_ls", {
   on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 vim.lsp.config("eslint", {
@@ -52,6 +55,7 @@ vim.lsp.config("eslint", {
       desc = "ESLint: Fix all",
     })
   end,
+  capabilities = capabilities,
 })
 
 -- Enable the servers so they can start automatically

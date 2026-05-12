@@ -84,4 +84,18 @@ require("lazy").setup({
       require("bufferline").setup({})
     end,
   },
+ -- Completion UI (like IntelliSense menu)
+  { "hrsh7th/nvim-cmp" },
+
+  -- LSP source for completion (so TS/ESLint suggestions show up)
+  { "hrsh7th/cmp-nvim-lsp" },
+
+  -- Snippet engine
+  { "L3MON4D3/LuaSnip" },
+
+  -- Snippet source for nvim-cmp
+  { "saadparwaiz1/cmp_luasnip" },
+
+  -- A big set of pre-made snippets (VS Code style snippets)
+  { "rafamadriz/friendly-snippets" },
 })

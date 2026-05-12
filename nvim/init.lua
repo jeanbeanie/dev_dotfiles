@@ -69,6 +69,8 @@ vim.opt.wrap = false
 
 -- Load plugin setup in /lua/plugins.lua
 require("plugins")
+--- Completion config
+require("config.cmp")
 -- Language Server Protocol
 require("lsp")
 
