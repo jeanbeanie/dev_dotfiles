@@ -115,4 +115,21 @@ require("lazy").setup({
       require("which-key").setup({})
     end,
   },
+  -- For auto closing your ()[]{}"" etcs.
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end,
+  },
+  -- makes adding comments quick/easy
+  {
+    "numToStr/Comment.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("Comment").setup({})
+    end,
+  },
+
 })

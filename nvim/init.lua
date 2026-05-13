@@ -214,3 +214,4 @@ vim.keymap.set("n", "<leader>gR", function() require("gitsigns").reset_buffer() 
 
 vim.keymap.set("n", "<leader>gb", function() require("gitsigns").blame_line() end, { desc = "Git: blame line" })
 vim.keymap.set("n", "<leader>gB", function() require("gitsigns").toggle_current_line_blame() end, { desc = "Git: toggle line blame" })
+
