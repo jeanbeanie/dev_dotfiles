@@ -189,3 +189,17 @@ vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last 
   { desc = "Session: restore last" })
 vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end,
   { desc = "Session: stop saving" })
+
+-- Git (gitsigns)
+vim.keymap.set("n", "]c", function() require("gitsigns").next_hunk() end, { desc = "Git: next hunk" })
+vim.keymap.set("n", "[c", function() require("gitsigns").prev_hunk() end, { desc = "Git: prev hunk" })
+
+vim.keymap.set("n", "<leader>gp", function() require("gitsigns").preview_hunk() end, { desc = "Git: preview hunk" })
+vim.keymap.set("n", "<leader>gs", function() require("gitsigns").stage_hunk() end, { desc = "Git: stage hunk" })
+vim.keymap.set("n", "<leader>gr", function() require("gitsigns").reset_hunk() end, { desc = "Git: reset hunk" })
+
+vim.keymap.set("n", "<leader>gS", function() require("gitsigns").stage_buffer() end, { desc = "Git: stage buffer" })
+vim.keymap.set("n", "<leader>gR", function() require("gitsigns").reset_buffer() end, { desc = "Git: reset buffer" })
+
+vim.keymap.set("n", "<leader>gb", function() require("gitsigns").blame_line() end, { desc = "Git: blame line" })
+vim.keymap.set("n", "<leader>gB", function() require("gitsigns").toggle_current_line_blame() end, { desc = "Git: toggle line blame" })
