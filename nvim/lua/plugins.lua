@@ -107,4 +107,12 @@ require("lazy").setup({
     "ahmedkhalf/project.nvim",
     event = "VeryLazy",
   },
+  -- keymaps helper
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("which-key").setup({})
+    end,
+  },
 })

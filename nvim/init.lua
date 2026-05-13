@@ -158,6 +158,17 @@ pcall(function()
   })
 end)
 
+-- group leader menus for which-key
+pcall(function()
+  local wk = require("which-key")
+  wk.add({
+    { "<leader>f", group = "Find (Telescope)" },
+    { "<leader>g", group = "Git" },
+    { "<leader>q", group = "Session" },
+    { "<leader>x", group = "Trouble/Diagnostics" },
+  })
+end)
+
 --- Completion config
 require("config.cmp")
 -- Language Server Protocol
