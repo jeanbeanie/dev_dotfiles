@@ -27,7 +27,10 @@ require("lazy").setup({
     -- Version tag; tends to be more stable than tracking latest commit
     tag = "0.1.8",
     -- Telescope requires plenary.nvim (Lua utility functions used by many plugins)
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { 
+      "nvim-lua/plenary.nvim",
+      "ahmedkhalf/project.nvim",
+    },
     config = function()
       local telescope = require("telescope")
       telescope.setup({
@@ -131,5 +134,17 @@ require("lazy").setup({
       require("Comment").setup({})
     end,
   },
+ -- switch between projects in one nvim instance
+  {
+    "jeanbeanie/project-switcher.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "ahmedkhalf/project.nvim",
+      "folke/persistence.nvim",
+    },
+    config = function()
+      require("project_switcher").setup()
+    end,
+  }
 
 })
