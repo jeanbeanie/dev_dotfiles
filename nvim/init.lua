@@ -95,16 +95,16 @@ pcall(function()
     manual_mode = false,
     detection_methods = { "pattern" },
     patterns = {
+      "pnpm-workspace.yaml",
       ".git",
       -- JS/TS
-      "package.json",
       "tsconfig.json",
       "jsconfig.json",
-      "pnpm-workspace.yaml",
       "yarn.lock",
       "bun.lockb",
       "deno.json",
       "deno.jsonc",
+      "package.json",
       -- other common project roots
       "pyproject.toml",
       "Cargo.toml",
