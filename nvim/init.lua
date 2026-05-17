@@ -111,6 +111,8 @@ pcall(function()
       "go.mod",
       "composer.json",
       "Makefile",
+      -- nvim config
+      "lazy-lock.json"
     },
   })
 end)
