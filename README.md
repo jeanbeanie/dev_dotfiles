@@ -1,6 +1,6 @@
 # dev_dotfiles
 
-Jeane's super deluxe exclusive configuration files, use them at your own risk! 😈
+My (Jeane's) super deluxe exclusive configuration files, use them at your own risk! 😈
 
 ## What's here
 
