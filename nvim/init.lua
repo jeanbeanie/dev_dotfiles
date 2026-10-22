@@ -14,6 +14,20 @@ vim.g.mapleader = " "
 -- Use system clipboard
 vim.opt.clipboard = "unnamedplus"
 
+-- WSL: go through win32yank so pasted Windows text has LF endings (no ^M)
+vim.g.clipboard = {
+  name = "win32yank",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf",
+  },
+  paste = {
+    ["+"] = "win32yank.exe -o --lf",
+    ["*"] = "win32yank.exe -o --lf",
+  },
+  cache_enabled = 0,
+}
+
 -- Enable 24-bit RBG colords in the terminal
 vim.opt.termguicolors = true
 
