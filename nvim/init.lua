@@ -195,6 +195,13 @@ require("config.treesitter")
 -- Nvim Tree Toggle
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "File tree: toggle" })
 
+-- Open the cheatsheet (resolves the init.lua symlink back into the dotfiles repo)
+vim.keymap.set("n", "<leader>?", function()
+  local init = vim.fn.resolve(vim.fn.stdpath("config") .. "/init.lua")
+  local sheet = vim.fn.fnamemodify(init, ":h") .. "/CHEATSHEET.md"
+  vim.cmd("vsplit " .. vim.fn.fnameescape(sheet))
+end, { desc = "Open cheatsheet" })
+
 -- Telescope keymaps
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })

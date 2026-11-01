@@ -12,6 +12,7 @@ My (Jeane's) super deluxe exclusive configuration files, use them at your own ri
 | `tmux/.tmux.conf`           | `~/.tmux.conf`                 | |
 | `nvim/init.lua`             | `~/.config/nvim/init.lua`      | entrypoint, Neovim 0.11+ (`vim.lsp.config` API) |
 | `nvim/lua/`                 | `~/.config/nvim/lua`           | plugins, LSP, completion, treesitter config |
+| `nvim/CHEATSHEET.md`        | (not linked)                   | keymap/command cheatsheet; press `<Space>?` in nvim to open it |
 | `nvim/lazy-lock.json`       | `~/.config/nvim/lazy-lock.json`| pinned plugin commits, managed by lazy.nvim |
 | `nvim-old/`                 | (not linked)                   | legacy vimscript config, kept for reference only — not active |
 
