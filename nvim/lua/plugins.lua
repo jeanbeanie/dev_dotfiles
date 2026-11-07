@@ -49,6 +49,12 @@ require("lazy").setup({
   -- Neovim's LSP client configuration (actual LSP wiring)
   { "neovim/nvim-lspconfig" },
 
+  -- Installs non-LSP tools (linters etc.) via Mason; list lives in lsp.lua
+  { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+
+  -- Runs linters (like HTMLHint) and shows results as normal diagnostics
+  { "mfussenegger/nvim-lint" },
+
   -- File tree (VS Code-like explorer)
   {
     "nvim-tree/nvim-tree.lua",

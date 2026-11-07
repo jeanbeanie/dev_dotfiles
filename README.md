@@ -11,7 +11,7 @@ My (Jeane's) super deluxe exclusive configuration files, use them at your own ri
 | `bash/.bashrc`              | `~/.bashrc`                    | rarely used day-to-day (zsh is the login shell), kept for when bash is invoked directly |
 | `tmux/.tmux.conf`           | `~/.tmux.conf`                 | |
 | `nvim/init.lua`             | `~/.config/nvim/init.lua`      | entrypoint, Neovim 0.11+ (`vim.lsp.config` API) |
-| `nvim/lua/`                 | `~/.config/nvim/lua`           | plugins, LSP, completion, treesitter config |
+| `nvim/lua/`                 | `~/.config/nvim/lua`           | plugins, LSP, linting, completion, treesitter config |
 | `nvim/CHEATSHEET.md`        | (not linked)                   | keymap/command cheatsheet; press `<Space>?` in nvim to open it |
 | `nvim/lazy-lock.json`       | `~/.config/nvim/lazy-lock.json`| pinned plugin commits, managed by lazy.nvim |
 | `nvim-old/`                 | (not linked)                   | legacy vimscript config, kept for reference only — not active |
@@ -25,9 +25,9 @@ Install before symlinking, or `nvim`/`zsh` will error on first launch:
 - `tmux`
 - Neovim **0.11+** (plugins/LSP config here use APIs that don't exist on older versions)
 - `ripgrep` (`rg`) — used by Telescope's live grep
-- `node` + `npm` — required by the LSP servers Mason installs (`ts_ls`, `eslint`)
+- `node` + `npm` — required by the LSP servers and linters Mason installs (`ts_ls`, `eslint`, `html`, `cssls`, `htmlhint`)
 
-Everything else (plugin manager, LSP servers, treesitter parsers) installs itself on first Neovim launch.
+Everything else (plugin manager, LSP servers, linters, treesitter parsers) installs itself on first Neovim launch.
 
 ## Setup from scratch
 
@@ -54,7 +54,7 @@ Everything else (plugin manager, LSP servers, treesitter parsers) installs itsel
 5. Launch `nvim`. On first run it will:
    - clone `lazy.nvim` (the plugin manager) automatically
    - install all plugins listed in `nvim/lua/plugins.lua`, pinned to the commits in `lazy-lock.json`
-   - install the LSP servers listed in `nvim/lua/lsp.lua` via Mason (`ts_ls`, `eslint`)
+   - install the LSP servers and linters listed in `nvim/lua/lsp.lua` via Mason (LSP servers through `mason-lspconfig`, linters like `htmlhint` through `mason-tool-installer`)
    - install the treesitter parsers listed in `nvim/lua/config/treesitter.lua`
 
    This can take a minute or two and may need a second `nvim` restart to fully settle.

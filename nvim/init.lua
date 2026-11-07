@@ -191,6 +191,8 @@ require("config.cmp")
 require("lsp")
 -- Treesitter config
 require("config.treesitter")
+-- Linting (nvim-lint)
+require("config.lint")
 
 -- Nvim Tree Toggle
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "File tree: toggle" })

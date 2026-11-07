@@ -55,7 +55,7 @@ Colorscheme: Catppuccin mocha, transparent background.
 
 ## 3. Go to definition & LSP
 
-Active for TypeScript/JavaScript (`ts_ls`) and `eslint`. These maps exist only in buffers where a server is attached.
+Active for TypeScript/JavaScript (`ts_ls`, `eslint`), HTML (`html`) and CSS (`cssls`). HTML also gets linting from HTMLHint via nvim-lint (`lua/config/lint.lua`): unclosed or mismatched tags, missing doctype, duplicate ids, uppercase tags/attrs. Missing `alt` is NOT on by default: add `{"alt-require": true}` to a `.htmlhintrc` in the project. It runs on open, save and leaving insert mode, and shows up as normal diagnostics (`[d`/`]d`, Trouble). These maps exist only in buffers where a server is attached.
 
 | Keys | What it does |
 |---|---|
@@ -70,7 +70,7 @@ Active for TypeScript/JavaScript (`ts_ls`) and `eslint`. These maps exist only i
 | `gO` | Document symbols outline (Neovim 0.11 default) |
 | `:checkhealth vim.lsp` | LSP status and attached servers |
 | `:LspInfo` / `:LspLog` | Server info / log |
-| `:Mason` | Install or update language servers |
+| `:Mason` | Install or update language servers and linters |
 
 Note: your buffer-local `gr` shadows Neovim 0.11's `grn` / `gra` / `grr` / `gri`, so those need `gr` to time out first.
 

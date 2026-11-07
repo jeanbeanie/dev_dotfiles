@@ -7,6 +7,15 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "ts_ls", -- Typescript/Javascript
     "eslint",
+    "html", -- HTML
+    "cssls", -- CSS
+  },
+})
+
+-- Mason installs non-LSP tools (linters) on startup; nvim-lint runs them (config/lint.lua)
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "htmlhint", -- HTML linter (unclosed tags, duplicate ids; see .htmlhintrc for more rules)
   },
 })
 -- Connect completion to LSP servers
@@ -58,5 +67,15 @@ vim.lsp.config("eslint", {
   capabilities = capabilities,
 })
 
+vim.lsp.config("html", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+vim.lsp.config("cssls", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
 -- Enable the servers so they can start automatically
-vim.lsp.enable({ "ts_ls", "eslint" })
+vim.lsp.enable({ "ts_ls", "eslint", "html", "cssls" })
