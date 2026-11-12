@@ -1,0 +1,10 @@
+# omp runtime state: never track. Only AGENTS.md, config.yml and commands/ belong in omp/
+omp/**/*.db
+omp/**/*.db-shm
+omp/**/*.db-wal
+omp/**/sessions/
+omp/**/terminal-sessions/
+omp/**/blobs/
+omp/**/cache/
+omp/**/predict/
+omp/**/plans/

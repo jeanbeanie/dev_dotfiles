@@ -1,0 +1,54 @@
+modelRoles:
+  default: anthropic/claude-sonnet-5-5
+symbolPreset: ascii
+composer:
+  shape: claude
+theme:
+  dark: titanium
+setupVersion: 2
+tools:
+  approvalMode: always-ask
+  restrictedFolders:
+    - /mnt/c
+  approval:
+    eval: prompt
+bash:
+  patterns:
+    - match: git status*
+      approval: allow
+    - match: git diff*
+      approval: allow
+    - match: git log*
+      approval: allow
+    - match: git branch --show-current
+      approval: allow
+    - match: git push*
+      approval: deny
+    - match: git commit*
+      approval: deny
+    - match: git add*
+      approval: deny
+    - match: pnpm db:up*
+      approval: deny
+    - match: pnpm db:new*
+      approval: deny
+    - match: pnpm --filter client test
+      approval: allow
+    - match: pnpm --filter client lint
+      approval: allow
+    - match: pnpm --filter client build
+      approval: allow
+    - match: pnpm --filter server test
+      approval: allow
+    - match: pnpm --filter server lint
+      approval: allow
+    - match: pnpm --filter server build
+      approval: allow
+    - match: pnpm --filter client exec vitest run*
+      approval: allow
+    - match: pnpm --filter server exec vitest run*
+      approval: allow
+task:
+  agentModelOverrides:
+    task: anthropic/claude-haiku-5-5
+    reviewer: github-copilot/claude-sonnet-5.5

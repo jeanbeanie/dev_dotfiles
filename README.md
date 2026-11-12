@@ -15,6 +15,9 @@ My (Jeane's) super deluxe exclusive configuration files, use them at your own ri
 | `nvim/CHEATSHEET.md`        | (not linked)                   | keymap/command cheatsheet; press `<Space>?` in nvim to open it |
 | `nvim/lazy-lock.json`       | `~/.config/nvim/lazy-lock.json`| pinned plugin commits, managed by lazy.nvim |
 | `nvim-old/`                 | (not linked)                   | legacy vimscript config, kept for reference only — not active |
+| `omp/AGENTS.md`             | `~/.omp/agent/AGENTS.md`       | global agent preferences for omp (plan format, commit message style) |
+| `omp/config.yml`            | `~/.omp/agent/config.yml`      | omp settings: model roles, bash approval patterns, theme |
+| `omp/commands/`             | `~/.omp/agent/commands`        | custom omp slash commands (`/impl-review`) |
 
 ## Prerequisites
 
@@ -49,6 +52,11 @@ Everything else (plugin manager, LSP servers, linters, treesitter parsers) insta
    ln -sf ~/dev_dotfiles/nvim/init.lua ~/.config/nvim/init.lua
    ln -sf ~/dev_dotfiles/nvim/lazy-lock.json ~/.config/nvim/lazy-lock.json
    ln -sf ~/dev_dotfiles/nvim/lua ~/.config/nvim/lua
+
+   mkdir -p ~/.omp/agent
+   ln -sf ~/dev_dotfiles/omp/AGENTS.md ~/.omp/agent/AGENTS.md
+   ln -sf ~/dev_dotfiles/omp/config.yml ~/.omp/agent/config.yml
+   ln -sfn ~/dev_dotfiles/omp/commands ~/.omp/agent/commands
    ```
 4. Restart the shell (`exec zsh`) to pick up the new `.zshrc`.
 5. Launch `nvim`. On first run it will:
