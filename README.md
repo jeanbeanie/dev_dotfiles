@@ -18,6 +18,7 @@ My (Jeane's) super deluxe exclusive configuration files, use them at your own ri
 | `omp/AGENTS.md`             | `~/.omp/agent/AGENTS.md`       | global agent preferences for omp (plan format, commit message style) |
 | `omp/config.yml`            | `~/.omp/agent/config.yml`      | omp settings: model roles, bash approval patterns, theme |
 | `omp/commands/`             | `~/.omp/agent/commands`        | custom omp slash commands (`/impl-review`) |
+| `omp/agents/`               | `~/.omp/agent/agents`          | custom omp subagent definitions (`planner`, `planner-lite`) |
 
 ## Prerequisites
 
@@ -57,6 +58,7 @@ Everything else (plugin manager, LSP servers, linters, treesitter parsers) insta
    ln -sf ~/dev_dotfiles/omp/AGENTS.md ~/.omp/agent/AGENTS.md
    ln -sf ~/dev_dotfiles/omp/config.yml ~/.omp/agent/config.yml
    ln -sfn ~/dev_dotfiles/omp/commands ~/.omp/agent/commands
+   ln -sfn ~/dev_dotfiles/omp/agents ~/.omp/agent/agents
    ```
 4. Restart the shell (`exec zsh`) to pick up the new `.zshrc`.
 5. Launch `nvim`. On first run it will:

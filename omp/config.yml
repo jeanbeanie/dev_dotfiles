@@ -1,5 +1,5 @@
 modelRoles:
-  default: anthropic/claude-sonnet-5-5
+  default: anthropic/claude-sonnet-5-5:high
 symbolPreset: ascii
 composer:
   shape: claude
@@ -50,5 +50,14 @@ bash:
       approval: allow
 task:
   agentModelOverrides:
-    task: anthropic/claude-haiku-5-5
+    task: github-copilot/claude-haiku-5.5
     reviewer: github-copilot/claude-sonnet-5.5
+  agentCompactionThresholdOverrides:
+    task: "55%"
+    reviewer: "55%"
+    planner: 200000
+    planner-lite: 160000
+    scout: "50%"
+    seance: 150000
+compaction:
+  thresholdTokens: 400000
