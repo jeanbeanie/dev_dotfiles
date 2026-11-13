@@ -53,11 +53,13 @@ task:
     task: github-copilot/claude-haiku-5.5
     reviewer: github-copilot/claude-sonnet-5.5
   agentCompactionThresholdOverrides:
-    task: "55%"
-    reviewer: "55%"
+    task: 55%
+    reviewer: 55%
     planner: 200000
     planner-lite: 160000
-    scout: "50%"
+    scout: 50%
     seance: 150000
 compaction:
   thresholdTokens: 400000
+claudeResets:
+  autoRedeem: "no"
