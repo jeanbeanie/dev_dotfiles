@@ -27,6 +27,19 @@
 - Delegated implementers update the handoff file as part of their commit work, by default
 - End the chat message that shows the plan with the full absolute path to the file on its own last line, so I can copy it
 
+## Retro
+- After every completed PR, add a section for it to the plan's retro file `~/.omp/agent/plans/<project>-<short-topic>-retro.md`, outside the repo so git never sees it
+- Completed means merged, or for the last PR of a plan, ready to merge (pushed, CI result known)
+- Create the file at the first completed PR, one section per PR, newest last. For a single PR plan that one section is the whole retro
+- Each PR section has four parts: What worked, What it cost, What hurt, How to improve the next PR
+- Cost uses real numbers from git and the plan: commits planned vs actual, lines added vs the plan estimate, calendar days, tests added. Say plainly when hours or tokens are not recorded, never invent them
+- Ground every item in git, the plan, the handoff, or something observed in the session. Mark guesses [INFERENCE]
+- Keep it short and plain: tables for numbers, bullets for the rest
+- After the last PR of a plan, add a "Whole plan" section with a totals table across PRs and the improvements that repeated
+- Before planning or starting the next PR, read the earlier retro sections and say which improvements apply
+- Create and edit the retro file on my behalf, no approval needed, same as the handoff file
+- Link the retro file from the handoff, and end the PR completion message with its absolute path on its own last line
+
 ## Commit messages
 
 Imperative subject line under 50 chars, blank line, then a bulleted body: one bullet per real change, naming the actual function/file/identifier rather than describing it abstractly. Keep bullets short: no trailing periods, no unnecessary hyphens, no em dashes, no semicolons. State what changed, not why it's fine or how it was tested. Drop self-justifying or "so that..." explanatory clauses. Check `git log` before drafting so a bullet doesn't restate reasoning from a recent earlier commit. For a small or mechanical change, a subject line alone is often enough, so don't pad it into bullets it doesn't need. Start bullets lowercase.
